@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rainier &amp; Carrie — We're Getting Married</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* The Seasons is not on Google Fonts. It loads if installed on the device, or from fonts/ next to this file.
+     Until then, Cormorant Garamond is used as a close fallback. */
+  @font-face{ font-family:'The Seasons'; font-weight:400 600; font-display:swap;
+    src: local('The Seasons'), local('TheSeasons'), local('The Seasons Regular'),
+         url('fonts/TheSeasons-Regular.woff2') format('woff2'),
+         url('fonts/TheSeasons-Regular.otf') format('opentype'); }
+</style>
+<style>
+  :root{
+    --ivory:#FFF5DC;
+    --lemon:#FFF9E0;
+    --butter:#FBF0B8;
+    --sage:#acad79;
+    --sage-deep:#43593b;
+    --dusty:#82a7d8;
+    --brown:#58402e;
+    --beige:#E9DA94;
+    --gold:#58402e;
+    --ink:#43593b;
+    --ink-soft:#4d6344;
+    --radius:18px;
+    --shadow: 0 10px 30px -12px rgba(67,89,59,0.28);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'The Seasons','Cormorant Garamond',Georgia,serif;
+    font-weight:500;
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{ font-family:'The Seasons','Cormorant Garamond',Georgia,serif; font-weight:500; }
+  .name-script{ font-family:'Parisienne', cursive; font-weight:400; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  .eyebrow{
+    font-family:'The Seasons','Cormorant Garamond',Georgia,serif; letter-spacing:.22em; text-transform:uppercase;
+    font-size:14px; color:var(--gold); font-weight:500; margin-bottom:10px;
+  }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+  .section{ padding:96px 0; position:relative; }
+  .section-title{ font-family:'Parisienne',cursive; font-weight:400; font-size:clamp(44px,6vw,64px); line-height:1.15; margin:0 0 8px; }
+  .section-sub{ color:var(--ink-soft); max-width:560px; margin:0 auto 48px; font-size:17px; }
+  .center{ text-align:center; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:999px;
+    border:1px solid var(--gold); font-family:'The Seasons','Cormorant Garamond',Georgia,serif; font-size:15px; letter-spacing:.05em;
+    cursor:pointer; transition:all .25s ease; background:transparent; color:var(--ink);
+  }
+  .btn-solid{ background:var(--dusty); color:var(--ink); border-color:var(--dusty); }
+  .btn-solid:hover{ background:#6e97cf; }
+  .btn:hover{ background:rgba(88,64,46,0.08); }
+  .btn-ghost{ border-color:rgba(67,89,59,.25); }
+
+  /* reveal animation */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---- NAV ---- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,245,220,0.92); backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(88,64,46,0.22);
+  }
+  .nav-inner{ max-width:1200px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .brand{ font-family:'The Seasons','Cormorant Garamond',Georgia,serif; font-size:22px; letter-spacing:.03em; }
+  .nav-links{ display:flex; gap:26px; list-style:none; margin:0; padding:0; font-size:15px; letter-spacing:.03em; }
+  .nav-links a{ opacity:.75; transition:opacity .2s; }
+  .nav-links a:hover{ opacity:1; color:var(--gold); }
+  .nav-toggle{ display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink); }
+  @media(max-width:860px){
+    .nav-links{ display:none; }
+    .nav-toggle{ display:block; }
+    .nav-links.open{
+      display:flex; flex-direction:column; position:absolute; top:64px; left:0; right:0;
+      background:var(--ivory); padding:20px 24px; gap:16px; border-bottom:1px solid var(--beige);
+    }
+  }
+
+  /* ---- HERO ---- */
+  .hero{
+    position:relative; min-height:92vh; display:flex; align-items:flex-end;
+    background:linear-gradient(180deg, rgba(67,89,59,.15), rgba(67,89,59,.55)), var(--hero-img, linear-gradient(160deg,var(--sage) 0%, var(--beige) 55%, var(--butter) 100%));
+    background-size:cover; background-position:center;
+    color:#fff;
+  }
+  .hero-inner{ width:100%; padding:60px 24px 64px; text-align:center; }
+  .hero .eyebrow{ color:var(--lemon); font-family:'Parisienne',cursive; font-weight:400; text-transform:none; letter-spacing:.02em; font-size:clamp(28px,4vw,40px); }
+  .hero h1{ font-size:clamp(64px,12vw,130px); margin:6px 0; letter-spacing:.02em; }
+  .hero .amp{ color:var(--butter); font-style:italic; }
+  .hero-meta{ font-size:17px; letter-spacing:.08em; text-transform:uppercase; opacity:.92; margin-bottom:28px; }
+  .hero-btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .hero .btn-ghost{ border-color:rgba(255,255,255,.6); color:#fff; }
+  .hero .btn-ghost:hover{ background:rgba(255,255,255,.12); }
+  .hero-upload{
+    position:absolute; top:20px; right:20px; font-size:13px; background:rgba(0,0,0,.4);
+    padding:9px 16px; border-radius:999px; cursor:pointer; color:#fff; display:inline-block;
+    border:1px solid rgba(255,255,255,.5); backdrop-filter:blur(4px); z-index:5;
+  }
+  .hero-upload:hover{ background:rgba(0,0,0,.55); }
+  .hero-dots{ position:absolute; bottom:120px; left:0; right:0; display:flex; justify-content:center; gap:8px; z-index:5; }
+  .hero-dots span{ width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.45); }
+  .hero-dots span.active{ background:var(--lemon); }
+
+  /* vine divider */
+  .vine{ display:flex; justify-content:center; margin:0 0 8px; opacity:.85; }
+
+  /* ---- MONOGRAM SEAL (signature element) ---- */
+  .seal-divider{ display:flex; align-items:center; justify-content:center; gap:18px; margin:0 auto 56px; }
+  .seal-divider .line{ height:1px; width:70px; background:linear-gradient(90deg,transparent,var(--dusty)); }
+  .seal-divider .line.r{ background:linear-gradient(90deg,var(--dusty),transparent); }
+  .seal{
+    width:64px; height:64px; border-radius:50%; border:1.5px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; font-family:'The Seasons','Cormorant Garamond',Georgia,serif;
+    font-style:italic; font-size:20px; color:var(--gold); position:relative; flex:none;
+  }
+  .seal::before{ content:''; position:absolute; inset:6px; border:1px solid rgba(88,64,46,.4); border-radius:50%; }
+
+  /* ---- OUR STORY ---- */
+  .story-line{ position:relative; max-width:720px; margin:0 auto; }
+  .story-line::before{
+    content:''; position:absolute; left:24px; top:0; bottom:0; width:1px;
+    background:linear-gradient(var(--gold),var(--sage)); opacity:.5;
+  }
+  .story-item{ position:relative; padding:0 0 48px 68px; }
+  .story-item:last-child{ padding-bottom:0; }
+  .story-dot{
+    position:absolute; left:14px; top:4px; width:22px; height:22px; border-radius:50%;
+    background:var(--ivory); border:2px solid var(--dusty); display:flex; align-items:center; justify-content:center;
+  }
+  .story-dot::after{ content:''; width:7px; height:7px; border-radius:50%; background:var(--dusty); }
+  .story-item .s-date{ font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
+  .story-item h3{ font-family:'Parisienne',cursive; font-weight:400; margin:4px 0 8px; font-size:36px; line-height:1.2; }
+  .story-item p{ color:var(--ink-soft); font-size:17px; margin:0 0 14px; }
+  .story-photo{
+    width:180px; height:130px; border-radius:14px; background:var(--beige) center/cover no-repeat;
+    display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:11px; cursor:pointer;
+    border:1px dashed rgba(88,64,46,.5); box-shadow:var(--shadow);
+  }
+
+  /* ---- GALLERY ---- */
+  .gallery-filters{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:30px; }
+  .filter-chip{
+    padding:7px 16px; border-radius:999px; font-size:12px; border:1px solid var(--beige); cursor:pointer;
+    background:var(--lemon); letter-spacing:.03em;
+  }
+  .filter-chip.active{ background:var(--dusty); border-color:var(--dusty); color:var(--ink); }
+  .masonry{ columns:3 220px; column-gap:16px; }
+  @media(max-width:640px){ .masonry{ columns:2 150px; } }
+  .g-item{
+    break-inside:avoid; margin-bottom:16px; border-radius:14px; overflow:hidden; box-shadow:var(--shadow);
+    background:var(--beige); cursor:pointer; position:relative;
+  }
+  .g-item img{ width:100%; display:block; }
+  .g-add{
+    aspect-ratio:1/1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:6px; color:var(--ink-soft); font-size:12px; border:1.5px dashed rgba(88,64,46,.5);
+  }
+  .lightbox{
+    position:fixed; inset:0; background:rgba(20,18,12,.92); display:none; align-items:center; justify-content:center;
+    z-index:100; padding:24px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox img{ max-height:86vh; border-radius:10px; }
+  .lightbox-close{ position:absolute; top:24px; right:28px; color:#fff; font-size:28px; cursor:pointer; background:none; border:none; }
+
+  /* ---- DETAILS CARDS ---- */
+  .cards-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px; }
+  .card{
+    background:var(--lemon); border-radius:var(--radius); padding:28px 24px; box-shadow:var(--shadow);
+    border:1px solid rgba(232,220,203,.7);
+  }
+  .card .icon{
+    width:44px; height:44px; border-radius:50%; background:rgba(130,167,216,.3); display:flex; align-items:center;
+    justify-content:center; margin-bottom:16px; color:var(--gold); font-size:20px;
+  }
+    .card, .form-card, .gift-card, .pay-card, .gb-card{ border-top:4px solid var(--dusty); }
+  .card h3{ font-family:'Parisienne',cursive; font-weight:400; margin:0 0 8px; font-size:32px; line-height:1.2; }
+  .card p{ margin:3px 0; font-size:15px; color:var(--ink-soft); }
+  .card p.main{ font-size:24px; line-height:1.3; color:var(--ink); margin:0 0 8px; }
+
+  /* ---- COUNTDOWN ---- */
+  .countdown-band{ background:var(--dusty); color:var(--ink); }
+  .countdown-band .section-sub{ color:var(--ink); }
+  .countdown-band .eyebrow{ color:var(--brown) !important; }
+  .countdown{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
+  .cd-box{
+    width:104px; padding:20px 0; border-radius:16px; background:rgba(254,245,218,.5);
+    border:1px solid rgba(254,245,218,.8); text-align:center;
+  }
+  .cd-box .num{ font-family:'Parisienne',cursive; font-weight:400; font-size:52px; line-height:1.1; display:block; }
+  .cd-box .lab{ font-size:13px; letter-spacing:.14em; text-transform:uppercase; opacity:.85; }
+
+  /* ---- TIMELINE (day-of) ---- */
+  .day-timeline{ max-width:560px; margin:0 auto; }
+  .tl-row{ display:flex; gap:20px; padding:14px 0; border-bottom:1px solid var(--beige); align-items:baseline; }
+  .tl-row:last-child{ border-bottom:none; }
+  .tl-time{ font-family:'The Seasons','Cormorant Garamond',Georgia,serif; font-size:22px; color:var(--gold); width:100px; flex:none; }
+  .tl-time{ font-family:'Parisienne',cursive; font-weight:400; font-size:28px; width:130px; white-space:nowrap; }
+  .tl-label{ font-size:17px; }
+
+  /* ---- FORMS ---- */
+  .form-card{
+    background:var(--lemon); border-radius:var(--radius); padding:40px; box-shadow:var(--shadow); max-width:640px; margin:0 auto;
+  }
+  .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:560px){ .form-grid{ grid-template-columns:1fr; } }
+  label{ font-size:13px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); display:block; margin-bottom:6px; }
+  input,select,textarea{
+    width:100%; padding:11px 14px; border-radius:10px; border:1px solid var(--beige); background:var(--lemon);
+    font-family:'The Seasons','Cormorant Garamond',Georgia,serif; font-size:16px; color:var(--ink); margin-bottom:16px;
+  }
+  input:focus,select:focus,textarea:focus{ outline:2px solid var(--dusty); outline-offset:1px; }
+  .radio-group{ display:flex; gap:14px; margin-bottom:16px; }
+  .radio-group label{ display:flex; align-items:center; gap:8px; border:1px solid var(--beige); padding:10px 16px; border-radius:10px; cursor:pointer; text-transform:none; font-size:16px; color:var(--ink); flex:1; margin:0; }
+  .radio-group input{ width:auto; margin:0; }
+  .rsvp-confirm{ text-align:center; padding:20px; color:var(--sage-deep); font-size:17px; display:none; }
+
+  /* ---- REGISTRY ---- */
+  .tabs{ display:flex; gap:8px; justify-content:center; margin-bottom:40px; flex-wrap:wrap; }
+  .tab-btn{ padding:10px 20px; border-radius:999px; border:1px solid var(--beige); background:var(--lemon); font-size:15px; cursor:pointer; }
+  .tab-btn.active{ background:var(--dusty); color:var(--ink); border-color:var(--dusty); }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  .fund-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px; }
+  .fund-card{ background:var(--lemon); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow); }
+  .fund-card h3{ margin:0 0 6px; font-size:22px; }
+  .fund-card p{ font-size:13px; color:var(--ink-soft); margin:0 0 14px; }
+  .bar-track{ height:8px; border-radius:999px; background:var(--beige); overflow:hidden; margin-bottom:8px; }
+  .bar-fill{ height:100%; background:linear-gradient(90deg,var(--sage),var(--gold)); border-radius:999px; }
+  .fund-amounts{ display:flex; justify-content:space-between; font-size:12px; color:var(--ink-soft); }
+
+  .gift-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+  .gift-card{ background:var(--lemon); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+  .gift-photo{ height:140px; background:var(--beige) center/cover no-repeat; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:12px; cursor:pointer; }
+  .gift-body{ padding:16px 18px 18px; }
+  .gift-body h4{ margin:0 0 4px; font-size:26px; font-family:'Parisienne',cursive; font-weight:400; }
+  .gift-price{ font-size:15px; color:var(--gold); margin-bottom:10px; }
+  .gift-purchased{ font-size:13px; padding:4px 10px; border-radius:999px; background:var(--dusty); color:var(--ink); display:inline-block; margin-bottom:10px; }
+  .gift-btn{ width:100%; padding:9px; border-radius:999px; border:1px solid var(--gold); background:transparent; font-size:14px; cursor:pointer; }
+  .gift-btn.done{ background:var(--beige); color:var(--ink-soft); border-color:var(--beige); }
+
+  .ext-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; }
+  .ext-card{ background:var(--lemon); border-radius:14px; padding:22px; text-align:center; box-shadow:var(--shadow); }
+  .ext-card .store{ font-family:'The Seasons','Cormorant Garamond',Georgia,serif; font-size:20px; margin-bottom:12px; }
+
+  .pay-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+  .pay-card{ background:var(--lemon); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); text-align:center; }
+  .qr-box{ width:130px; height:130px; margin:0 auto 14px; border-radius:12px; background:var(--lemon); display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--ink-soft); border:1px dashed var(--gold); }
+  .copy-btn{ font-size:13px; padding:6px 14px; border-radius:999px; border:1px solid var(--beige); background:var(--lemon); cursor:pointer; margin-top:8px; }
+
+  /* ---- FAQ ---- */
+  .faq{ max-width:680px; margin:0 auto; }
+  .faq-item{ border-bottom:1px solid var(--beige); }
+  .faq-q{ width:100%; text-align:left; background:none; border:none; padding:18px 4px; font-size:18px; font-family:'The Seasons','Cormorant Garamond',Georgia,serif; display:flex; justify-content:space-between; cursor:pointer; color:var(--ink); }
+  .faq-q .plus{ color:var(--gold); font-size:20px; transition:transform .25s; }
+  .faq-item.open .plus{ transform:rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .3s ease; font-size:16px; color:var(--ink-soft); }
+  .faq-item.open .faq-a{ max-height:260px; padding-bottom:18px; }
+
+  /* ---- GUESTBOOK ---- */
+  .gb-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:36px; }
+  .gb-card{ background:var(--lemon); border-radius:16px; padding:20px; box-shadow:var(--shadow); }
+  .gb-card .gb-name{ font-family:'Parisienne',cursive; font-weight:400; font-size:26px; color:var(--gold); margin-bottom:4px; }
+  .gb-card p{ font-size:15.5px; color:var(--ink-soft); margin:0; }
+
+  /* ---- CONTACT / FOOTER ---- */
+  .contact-band{ background:var(--dusty); }
+  .contact-band .eyebrow, .contact-band .contact-item .lab{ color:var(--brown); }
+  .contact-grid{ display:flex; gap:40px; justify-content:center; flex-wrap:wrap; text-align:center; }
+  .contact-item{ font-size:16px; }
+  .contact-item .lab{ display:block; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  footer{ background:var(--ink); color:var(--lemon); text-align:center; padding:56px 24px; }
+  footer h2{ margin:0 0 6px; color:var(--dusty); font-size:clamp(44px,7vw,72px); }
+  footer .sub{ font-size:15px; opacity:.7; margin-bottom:18px; }
+  footer .thanks{ font-style:italic; font-family:'The Seasons','Cormorant Garamond',Georgia,serif; font-size:22px; }
+
+  /* ---- ADMIN ---- */
+  .admin-toggle{
+    position:fixed; bottom:20px; right:20px; z-index:60; background:var(--ink); color:#fff;
+    border:none; border-radius:999px; padding:12px 18px; font-size:12px; cursor:pointer; box-shadow:var(--shadow);
+    letter-spacing:.03em;
+  }
+  .admin-panel{
+    position:fixed; top:0; right:0; bottom:0; width:340px; max-width:90vw; background:var(--lemon); z-index:70;
+    box-shadow:-10px 0 30px rgba(0,0,0,.15); padding:24px; transform:translateX(100%); transition:transform .3s ease;
+    overflow-y:auto;
+  }
+  .admin-panel.open{ transform:translateX(0); }
+  .admin-panel h3{ margin-top:0; }
+  .admin-panel .close-admin{ position:absolute; top:18px; right:18px; background:none; border:none; font-size:20px; cursor:pointer; }
+  .admin-row{ font-size:13px; padding:10px 0; border-bottom:1px solid var(--beige); }
+  .rsvp-table{ width:100%; font-size:11px; border-collapse:collapse; margin-top:10px; }
+  .rsvp-table td, .rsvp-table th{ border-bottom:1px solid var(--beige); padding:5px 4px; text-align:left; }
+  .edit-mode [contenteditable="true"]{ outline:1px dashed var(--gold); outline-offset:2px; cursor:text; }
+  .edit-hint{ font-size:11px; color:var(--sage-deep); background:var(--lemon); padding:8px 12px; border-radius:8px; margin-bottom:14px; display:none; }
+  .edit-mode .edit-hint{ display:block; }
+
+  /* ---- VIBE: airy garden table — linen, chiffon, baby's breath, place cards ---- */
+  body{ background-image:repeating-linear-gradient(0deg,rgba(88,64,46,.025) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(88,64,46,.025) 0 1px,transparent 1px 3px); }
+  .hero{ background:linear-gradient(180deg,rgba(67,89,59,.12),rgba(67,89,59,.55)),var(--hero-img,linear-gradient(165deg,#82a7d8 0%,#BFD4EE 42%,#FBF0B8 100%)); background-size:cover; background-position:center; }
+  .sprig{ display:block; margin:0 auto 6px; opacity:.95; }
+  .seal{ width:56px; height:76px; border-radius:6px; background:var(--lemon); border:1px solid rgba(88,64,46,.45); box-shadow:var(--shadow); font-size:24px; }
+  .seal::before{ inset:4px; border-radius:3px; border:1px solid rgba(88,64,46,.25); }
+  .card,.form-card,.gift-card,.pay-card,.gb-card{ border-radius:22px; box-shadow:0 18px 40px -22px rgba(67,89,59,.35); }
+  .countdown-band{ background:linear-gradient(180deg,#BFD4EE,#82a7d8); margin:40px 0; }
+  .countdown-band::before,.countdown-band::after{ content:''; position:absolute; left:0; right:0; height:40px; z-index:2; background-size:100% 100%; background-repeat:no-repeat; }
+  .countdown-band::before{ top:-39px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C200,6 420,62 720,32 C1000,4 1220,58 1440,28 L1440,60 L0,60Z' fill='%23BFD4EE'/%3E%3C/svg%3E"); }
+  .countdown-band::after{ bottom:-39px; transform:scaleY(-1); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C200,6 420,62 720,32 C1000,4 1220,58 1440,28 L1440,60 L0,60Z' fill='%2382a7d8'/%3E%3C/svg%3E"); }
+  .contact-band{ background:linear-gradient(180deg,#BFD4EE,#82a7d8); }
+
+  /* ---- REGENCY ROMANCE: striped silk wallpaper, arches, scalloped edges, wax seal, ribbon ---- */
+  :root{ --blush:#EECFD0; --sage:#A8B88D; }
+  body{ background-image:none; }
+  #details,#rsvp{ background:#FBF0B8 !important; }
+  #details::before,#rsvp::before,.contact-band::before{ content:''; position:absolute; left:0; right:0; top:-13px; height:14px; background:radial-gradient(circle at 12px 14px,#FBF0B8 12px,transparent 12.5px) repeat-x; background-size:24px 14px; }
+  .contact-band::before{ background:radial-gradient(circle at 12px 14px,#F6DEDF 12px,transparent 12.5px) repeat-x; background-size:24px 14px; }
+  #rsvp::after{ content:''; position:absolute; left:0; right:0; bottom:-13px; height:14px; background:radial-gradient(circle at 12px 0,#FBF0B8 12px,transparent 12.5px) repeat-x; background-size:24px 14px; }
+  .section-sub{ letter-spacing:.06em; }
+  .hero{ align-items:center; padding:84px 0 70px; }
+  .hero-inner{ padding:0 20px; }
+  .arch{ position:relative; width:min(540px,92vw); margin:0 auto; padding:clamp(84px,24%,120px) 9% 14%; border-radius:999px 999px 26px 26px; background:rgba(255,245,220,.96); color:var(--ink); box-shadow:0 30px 60px -28px rgba(67,89,59,.55); }
+  .arch::before{ content:''; position:absolute; inset:12px; border:1.5px solid rgba(88,64,46,.55); border-radius:999px 999px 16px 16px; pointer-events:none; }
+  .arch::after{ content:''; position:absolute; inset:21px; border:1px solid rgba(88,64,46,.28); border-radius:999px 999px 10px 10px; pointer-events:none; }
+  .arch-text{ position:relative; z-index:2; }
+  .crown{ position:absolute; top:-42px; left:50%; transform:translateX(-50%); width:58%; max-width:300px; z-index:3; pointer-events:none; }
+  .bow{ position:absolute; bottom:-32px; left:50%; transform:translateX(-50%); width:104px; z-index:3; pointer-events:none; }
+  .intro{ font-size:14px; letter-spacing:.2em; line-height:1.9; color:var(--ink-soft); margin:0; }
+  .arch h1{ font-size:clamp(38px,11vw,68px); line-height:1.1; margin:14px 0; white-space:nowrap; color:var(--ink); }
+  .arch .amp{ color:var(--brown); font-style:normal; }
+  .arch .hero-meta{ color:var(--ink); font-size:14px; letter-spacing:.16em; margin:14px 0 20px; opacity:1; }
+  .hero-btns{ position:relative; z-index:2; }
+  .seal{ width:68px; height:68px; border-radius:48% 52% 50% 50%/52% 48% 52% 48%; background:radial-gradient(circle at 35% 30%,#7b5a44,#58402e 72%); color:var(--lemon); border:none; box-shadow:inset 0 0 0 4px rgba(255,245,220,.18),inset 0 0 0 5px rgba(255,245,220,.35),0 8px 16px -6px rgba(88,64,46,.6); }
+  .seal::before{ content:none; }
+  .seal-divider .line{ background:linear-gradient(90deg,transparent,var(--brown)); }
+  .seal-divider .line.r{ background:linear-gradient(90deg,var(--brown),transparent); }
+  .card,.form-card,.gb-card{ background:var(--lemon); border-top:none; box-shadow:inset 0 0 0 6px var(--lemon),inset 0 0 0 7px rgba(88,64,46,.35),0 18px 40px -22px rgba(67,89,59,.35); }
+  .card{ border-radius:150px 150px 22px 22px; padding:54px 28px 34px; text-align:center; }
+  .card .icon{ margin:0 auto 16px; background:rgba(238,207,208,.75); }
+  .contact-band{ background:linear-gradient(180deg,#F6DEDF,#EECFD0); }
+
+  /* hero: full-bleed photo, centred text, thin inset keyline */
+  .hero{ background:linear-gradient(180deg,rgba(40,55,36,.28),rgba(40,55,36,.6)),var(--hero-img,linear-gradient(165deg,#82a7d8 0%,#BFD4EE 42%,#FBF0B8 100%)); background-size:cover; background-position:center; text-align:center; color:var(--lemon); }
+  .hero::after{ content:''; position:absolute; inset:18px; border:1px solid rgba(255,245,220,.55); pointer-events:none; }
+  .hero .intro{ color:var(--lemon); max-width:480px; margin:0 auto; }
+  .hero h1{ font-size:clamp(56px,12vw,120px); line-height:1.05; margin:14px 0; color:#fff; white-space:normal; }
+  .hero .amp{ color:var(--butter); font-style:normal; }
+  .hero .hero-meta{ color:var(--lemon); font-size:15px; letter-spacing:.16em; margin:10px 0 26px; opacity:1; }
+
+  /* script type must not be letter-spaced (it breaks the joins) */
+  .name-script,.brand,.section-title,.card h3,.tl-time,.gb-card .gb-name,.cd-box .num{ letter-spacing:0 !important; word-spacing:0; font-synthesis:none; }
+  .hero h1{ line-height:1.2; padding:.08em 0; }
+  .section[id]{ scroll-margin-top:64px; }
+  .seal-divider{ margin-top:48px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="bloom" viewBox="0 0 100 100"><g fill="#EECFD0" fill-opacity=".95" stroke="#b58a8f" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><g id="pt"><path d="M50 52 C26 46 18 16 40 8 C54 4 62 18 50 52Z"/><path d="M50 46 C45 34 43 24 44 14" fill="none" stroke-width="1"/></g><use href="#pt" transform="rotate(72 50 50)"/><use href="#pt" transform="rotate(144 50 50)"/><use href="#pt" transform="rotate(216 50 50)"/><use href="#pt" transform="rotate(288 50 50)"/><circle cx="50" cy="50" r="6" fill="#F9E48C"/></g></symbol>
+<symbol id="leaf" viewBox="0 0 40 80"><g fill="#A8B88D" fill-opacity=".35" stroke="#7d9266" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M20 78 C2 56 4 20 20 2 C36 20 38 56 20 78Z"/><path d="M20 76 L20 10" fill="none"/></g></symbol>
+</defs></svg>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand name-script">R <span style="color:var(--gold)">&amp;</span> C</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#details">Details</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#faq">FAQs</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="#guestbook">Guestbook</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <div class="hero-upload" onclick="document.getElementById('heroUpload').click()">✎ <span id="heroUploadLabel">Add Pre-Wedding Photos</span></div>
+  <input type="file" id="heroUpload" accept="image/*" multiple style="display:none">
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-inner">
+    <p class="intro">The honour of your presence is requested at the marriage of</p>
+    <h1 class="name-script" contenteditable="false" id="coupleNames">Rainier <span class="amp">&amp;</span> Carrie</h1>
+    <div class="hero-meta" contenteditable="false" id="heroMeta">The Thirtieth of April, 2027 ✦ Antipolo City</div>
+    <div class="hero-btns"><a href="#rsvp" class="btn btn-solid">Reply</a></div>
+  </div>
+</header>
+
+
+<div class="wrap"><div class="seal-divider reveal"><div class="line"></div><div class="seal name-script" style="font-size:26px;">R&amp;C</div><div class="line r"></div></div></div>
+
+<!-- DETAILS -->
+<section class="section" id="details" style="background:var(--lemon)">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">The Particulars</div>
+      <h2 class="section-title">Wedding Details</h2>
+      <p class="section-sub">Everything you need to know for the big day.</p>
+    </div>
+    <div class="cards-grid reveal">
+      <div class="card">
+        <div class="icon">⛪</div>
+        <h3>Ceremony</h3>
+        <p class="main">Parish of the Immaculate Heart of Mary</p>
+        <p>Antipolo City</p>
+        <p>1:00 PM</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Parish+of+the+Immaculate+Heart+of+Mary+Antipolo+City" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:14px;font-size:13px;padding:8px 18px;">Open in Maps</a>
+      </div>
+      <div class="card">
+        <div class="icon">🥂</div>
+        <h3>Reception</h3>
+        <p class="main">The Garden Hive Events Place</p>
+        <p>The Citywalk Bldg, ML Quezon St. Ext.,</p>
+        <p>Brgy. San Roque, Antipolo City 1870</p>
+        <p>4:00 PM</p>
+        <p>Attire: Garden Party / Semi-Formal</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=The+Garden+Hive+Events+Place+Citywalk+Bldg+ML+Quezon+St+Ext+San+Roque+Antipolo+City+1870" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:14px;font-size:13px;padding:8px 18px;">Open in Maps</a>
+      </div>
+      <div class="card">
+        <div class="icon">🚗</div>
+        <h3>Parking</h3>
+        <p class="main">Parking available on-site</p>
+        <p>at The Garden Hive Events Place.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="section countdown-band">
+  <div class="wrap center reveal">
+    <div class="eyebrow" style="color:var(--lemon)">Until The Day</div>
+    <h2 class="section-title">Counting Down to "I Do"</h2>
+    <p class="section-sub">Until we say our vows.</p>
+    <div class="countdown">
+      <div class="cd-box"><span class="num" id="cd-days">--</span><span class="lab">Days</span></div>
+      <div class="cd-box"><span class="num" id="cd-hours">--</span><span class="lab">Hours</span></div>
+      <div class="cd-box"><span class="num" id="cd-mins">--</span><span class="lab">Minutes</span></div>
+      <div class="cd-box"><span class="num" id="cd-secs">--</span><span class="lab">Seconds</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY TIMELINE -->
+<section class="section" id="timeline">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">The Order of the Day</div>
+      <h2 class="section-title">Wedding Day Timeline</h2>
+    </div>
+    <div class="day-timeline reveal" id="dayTimeline"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="background:var(--lemon)">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Matters of Etiquette</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq reveal" id="faqList"></div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="section" id="rsvp" style="background:var(--lemon)">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">The Favour of a Reply</div>
+      <h2 class="section-title">RSVP</h2>
+      <p class="section-sub">We'd love to celebrate with you — please respond by March 30, 2027.</p>
+    </div>
+    <div class="form-card reveal">
+      <form id="rsvpForm" onsubmit="submitRsvp(event)">
+        <div class="form-grid">
+          <div><label>Full Name</label><input required id="r-name"></div>
+          <div><label>Email</label><input type="email" required id="r-email"></div>
+          <div><label>Phone</label><input id="r-phone"></div>
+          <div><label>Number of Guests</label><input type="number" min="1" value="1" id="r-guests"></div>
+        </div>
+        <label>Attendance</label>
+        <div class="radio-group">
+          <label><input type="radio" name="attend" value="Happily Attending" checked> Happily Attending</label>
+          <label><input type="radio" name="attend" value="Regretfully Declines"> Regretfully Declines</label>
+        </div>
+        <label>Song Request</label>
+        <input id="r-song" placeholder="A song that'll get you on the dance floor">
+        <label>Message to the Couple</label>
+        <textarea rows="3" id="r-msg" placeholder="Leave us a note..."></textarea>
+        <button class="btn btn-solid" style="width:100%;justify-content:center;" type="submit">Send RSVP</button>
+      </form>
+      <div class="rsvp-confirm" id="rsvpConfirm">✓ Thank you! Your RSVP has been received.</div>
+      <p class="center" style="margin:22px 0 0;font-size:15px;color:var(--ink-soft);">Prefer to reply another way? Kindly confirm your attendance on or before <b>30 March 2027</b> through either of the following contact numbers: <a href="tel:+639064629196"><b>0906 462 9196</b></a> or <a href="tel:+639062958640"><b>0906 295 8640</b></a>, or via Messenger through Carrie or Rainier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GUESTBOOK -->
+<section class="section" id="guestbook">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Letters of Felicitation</div>
+      <h2 class="section-title">Guestbook</h2>
+      <p class="section-sub">Share a memory, a wish, or well-wishes for our new chapter.</p>
+    </div>
+    <div class="form-card reveal" style="max-width:520px;">
+      <form onsubmit="submitGuestbook(event)">
+        <label>Name</label><input required id="gb-name">
+        <label>Message</label><textarea rows="3" required id="gb-msg"></textarea>
+        <button class="btn btn-solid" style="width:100%;justify-content:center;" type="submit">Post Message</button>
+      </form>
+    </div>
+    <div class="gb-grid" id="gbGrid"></div>
+  </div>
+</section>
+
+
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" src="">
+</div>
+
+<!-- ADMIN -->
+<button class="admin-toggle" onclick="openAdmin()">✎ Admin</button>
+<div class="admin-panel" id="adminPanel">
+  <button class="close-admin" onclick="closeAdmin()">×</button>
+  <h3>Admin Dashboard</h3>
+  <div id="adminLogin">
+    <p style="font-size:13px;color:var(--ink-soft)">Enter the site password to manage content.</p>
+    <input type="password" id="adminPass" placeholder="Password">
+    <button class="btn btn-solid" style="width:100%;justify-content:center;" onclick="checkAdminPass()">Unlock</button>
+    <p style="font-size:11px;color:var(--ink-soft);margin-top:10px;">Demo password: <b>wedding2027</b></p>
+  </div>
+  <div id="adminTools" style="display:none;">
+    <div class="admin-row">
+      <label style="margin-bottom:6px;">Edit Mode</label>
+      <button class="btn" style="width:100%;justify-content:center;" onclick="toggleEditMode()" id="editModeBtn">Turn On Edit Mode</button>
+      <p style="font-size:11px;color:var(--ink-soft);margin-top:8px;">When on, click any headline/text on the page to edit it directly, or use the "Change photo" prompts on images.</p>
+    </div>
+    <div class="admin-row">
+      <label>RSVP Responses (<span id="rsvpCount">0</span>)</label>
+      <button class="btn" style="width:100%;justify-content:center;" onclick="exportRsvpCsv()">Export CSV</button>
+      <table class="rsvp-table" id="rsvpTable"><thead><tr><th>Name</th><th>Guests</th><th>Attend</th></tr></thead><tbody></tbody></table>
+    </div>
+    <div class="admin-row" style="border-bottom:none;">
+      <p style="font-size:11px;color:var(--ink-soft);">Note: this is an in-browser demo of the admin panel. Content edits, RSVP responses, and photo uploads exist only for this session and are not saved to a server — a production build would connect this panel to a real backend/database.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------------- DATA (in-memory, session only) ---------------- */
+const storyData = [
+  {date:"August 2019", title:"First Meeting", desc:"We met at a mutual friend's rooftop birthday party and talked until the candles burned out."},
+  {date:"October 2019", title:"First Date", desc:"Coffee turned into a six-hour walk around the city. We knew something had started."},
+  {date:"February 2023", title:"Proposal", desc:"On a quiet beach at sunset, Rainier got down on one knee — and Carrie said yes before he finished the sentence."},
+  {date:"March 2023", title:"Engagement", desc:"We celebrated with our families over a long, joyful dinner under the stars."},
+  {date:"April 30, 2027", title:"Wedding Day", desc:"The day we've been dreaming of — and we can't wait to share it with you."}
+];
+
+const galleryData = [
+  {cat:"Pre-Wedding"}, {cat:"Pre-Wedding"}, {cat:"Engagement"}, {cat:"Engagement"}, {cat:"Travel"}, {cat:"Family"}, {cat:"Travel"}, {cat:"Engagement"}, {cat:"Family"}, {cat:"Friends"}
+];
+
+const dayTimelineData = [
+  ["12:30 PM","Guest Arrival (Church)"], ["1:00 PM","Ceremony"], ["2:15 PM","Photos & Travel to Venue"],
+  ["4:00 PM","Reception Begins"], ["4:30 PM","Dinner"], ["5:30 PM","Program"], ["7:00 PM","Dancing"]
+];
+
+let bankData = [
+  {label:"GCash", account:"0917 000 0000"},
+  {label:"Maya", account:"0917 111 1111"},
+  {label:"BPI — Carrie R.", account:"0012 3456 78"}
+];
+
+let giftsData = [
+  {name:"Coffee Machine", price:"₱8,500", purchased:false, buyLink:""},
+  {name:"Dining Set", price:"₱22,000", purchased:true, buyLink:""},
+  {name:"Wardrobe Cabinet", price:"₱15,000", purchased:false, buyLink:""},
+  {name:"Kitchen Appliances", price:"₱12,000", purchased:false, buyLink:""},
+  {name:"Air Purifier", price:"₱9,800", purchased:false, buyLink:""},
+  {name:"Vacuum", price:"₱6,500", purchased:true, buyLink:""},
+  {name:"Luggage Set", price:"₱7,200", purchased:false, buyLink:""},
+  {name:"Home Decor", price:"₱4,000", purchased:false, buyLink:""}
+];
+
+const faqData = [
+  {q:"Can I bring a plus one?", a:"Please check your invitation — plus ones are noted by name. If you're unsure, feel free to reach out to us directly."},
+  {q:"What should I wear?", a:"Garden Party / Semi-Formal. Ladies: midi or maxi dresses in soft, romantic hues. Gentlemen: long-sleeved dress shirts, tailored trousers, or suits; Barong Tagalog is welcome too. Please avoid jeans, T-shirts, and pure black or white."},
+  {q:"Are children invited?", a:"We love your little ones, but we've planned an adults-only celebration so everyone can relax and enjoy the evening."},
+  {q:"Can I take photos?", a:"During the ceremony we ask for an unplugged moment so everyone can be present — feel free to snap away at the reception!"},
+  {q:"Any gift preferences?", a:"Your presence means the world to us. If you'd like to give a gift, please reach out to us and we'll gladly share how."}
+];
+
+let guestbookData = [];
+
+let rsvpData = [];
+
+/* ---------------- RENDER ---------------- */
+function el(html){ const d=document.createElement('div'); d.innerHTML=html.trim(); return d.firstChild; }
+
+/* Verifies a photo can actually be displayed by the browser before using it.
+   Catches unsupported formats like HEIC (the default format on iPhones) that
+   otherwise fail silently and leave a blank tile. */
+function loadImageSafe(url, onSuccess, onFail){
+  const testImg = new Image();
+  testImg.onload = ()=> onSuccess(url);
+  testImg.onerror = ()=> onFail();
+  testImg.src = url;
+}
+
+function renderStory(){
+  const line = document.getElementById('storyLine');
+  storyData.forEach((s,i)=>{
+    line.appendChild(el(`
+      <div class="story-item reveal">
+        <div class="story-dot"></div>
+        <div class="s-date">${s.date}</div>
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+        <div class="story-photo" onclick="pickPhoto(this)">+ Add photo</div>
+      </div>`));
+  });
+}
+
+let activeFilter = "All";
+function renderGallery(){
+  const cats = ["All", ...new Set(galleryData.map(g=>g.cat))];
+  const filters = document.getElementById('galleryFilters');
+  filters.innerHTML = "";
+  cats.forEach(c=>{
+    const chip = el(`<div class="filter-chip ${c===activeFilter?'active':''}">${c}</div>`);
+    chip.onclick = ()=>{ activeFilter = c; renderGallery(); };
+    filters.appendChild(chip);
+  });
+  const grid = document.getElementById('masonry');
+  grid.innerHTML = "";
+  const heights=[180,240,200,260,190];
+  galleryData.forEach((g,i)=>{
+    if(activeFilter!=="All" && g.cat!==activeFilter) return;
+    let item;
+    if(g.img){
+      item = el(`<div class="g-item"><img src="${g.img}" style="height:${heights[i%heights.length]}px;object-fit:cover;"></div>`);
+      item.onclick = ()=>openLightbox(g.img);
+    } else {
+      item = el(`<div class="g-item"><div class="g-add" style="height:${heights[i%heights.length]}px">📷<br>${g.cat}<br><span style="text-decoration:underline">Add photo</span></div></div>`);
+      item.onclick = ()=>{
+        const input = document.createElement('input');
+        input.type='file'; input.accept='image/*';
+        document.body.appendChild(input);
+        input.style.display='none';
+        input.onchange = e=>{
+          const file = e.target.files[0];
+          input.remove();
+          if(!file) return;
+          const url = URL.createObjectURL(file);
+          loadImageSafe(url,
+            ()=>{ galleryData[i].img = url; renderGallery(); },
+            ()=>{ alert(`"${file.name}" couldn't be displayed. This is usually a HEIC/iPhone photo — please convert it to JPG or PNG and try again.`); }
+          );
+        };
+        input.click();
+      };
+    }
+    grid.appendChild(item);
+  });
+  if(activeFilter==="All" || activeFilter==="Pre-Wedding"){
+    const addMore = el(`<div class="g-item"><div class="g-add" style="height:200px">＋<br>Add More<br><span style="text-decoration:underline">Pre-Wedding Photos</span></div></div>`);
+    addMore.onclick = ()=>{
+      const input = document.createElement('input');
+      input.type='file'; input.accept='image/*'; input.multiple = true;
+      input.style.display='none';
+      document.body.appendChild(input);
+      input.onchange = e=>{
+        const files = Array.from(e.target.files || []);
+        input.remove();
+        if(files.length===0) return;
+        const failed = [];
+        let remaining = files.length;
+        files.forEach(file=>{
+          const url = URL.createObjectURL(file);
+          loadImageSafe(url,
+            ()=>{ galleryData.push({cat:"Pre-Wedding", img:url}); remaining--; if(remaining===0){ renderGallery(); if(failed.length) alert(`These photos couldn't be displayed (likely HEIC/iPhone format — convert to JPG or PNG and re-upload):\n${failed.join('\n')}`); } },
+            ()=>{ failed.push(file.name); remaining--; if(remaining===0){ renderGallery(); if(failed.length) alert(`These photos couldn't be displayed (likely HEIC/iPhone format — convert to JPG or PNG and re-upload):\n${failed.join('\n')}`); } }
+          );
+        });
+      };
+      input.click();
+    };
+    grid.appendChild(addMore);
+  }
+}
+
+function renderDayTimeline(){
+  const box = document.getElementById('dayTimeline');
+  dayTimelineData.forEach(([t,l])=>{
+    box.appendChild(el(`<div class="tl-row"><div class="tl-time">${t}</div><div class="tl-label" contenteditable="false">${l}</div></div>`));
+  });
+}
+
+function renderBank(){
+  const grid = document.getElementById('bankGrid');
+  grid.innerHTML = "";
+  bankData.forEach((b,i)=>{
+    const card = el(`
+      <div class="pay-card">
+        <div class="qr-box" onclick="pickPhoto(this)">+ Upload QR Code</div>
+        <div contenteditable="false" class="bank-label">${b.label}</div>
+        <div style="font-size:12px;color:var(--ink-soft)" contenteditable="false" class="bank-account">${b.account}</div>
+        <button class="copy-btn">Copy Details</button>
+      </div>`);
+    card.querySelector('.copy-btn').onclick = ()=>copyText(b.account);
+    grid.appendChild(card);
+  });
+}
+
+function renderGifts(){
+  const grid = document.getElementById('giftGrid');
+  grid.innerHTML = "";
+  giftsData.forEach((g,i)=>{
+    const card = el(`
+      <div class="gift-card">
+        <div class="gift-photo" onclick="pickPhoto(this)">+ Add photo</div>
+        <div class="gift-body">
+          <h4>${g.name}</h4>
+          <div class="gift-price">${g.price}</div>
+          ${g.purchased?'<div class="gift-purchased">Purchased ✓</div><br>':''}
+          <button class="gift-btn ${g.purchased?'done':''}">${g.purchased?'Reserved':'Mark as Purchased'}</button>
+          ${g.buyLink
+            ? `<a href="${g.buyLink}" target="_blank" class="copy-btn" style="display:block;text-align:center;margin-top:8px;">Buy Here ↗</a>`
+            : `<button class="copy-btn buy-link-btn" style="width:100%;margin-top:8px;">+ Add "Where to Buy" Link</button>`}
+        </div>
+      </div>`);
+    card.querySelector('.gift-btn').onclick = ()=>{ giftsData[i].purchased = !giftsData[i].purchased; renderGifts(); };
+    const buyBtn = card.querySelector('.buy-link-btn');
+    if(buyBtn){
+      buyBtn.onclick = ()=>{
+        const url = prompt('Paste the link where guests can buy this gift:');
+        if(url){ giftsData[i].buyLink = url; renderGifts(); }
+      };
+    }
+    grid.appendChild(card);
+  });
+}
+
+function renderFaq(){
+  const list = document.getElementById('faqList');
+  faqData.forEach(f=>{
+    const item = el(`<div class="faq-item"><button class="faq-q"><span>${f.q}</span><span class="plus">+</span></button><div class="faq-a">${f.a}</div></div>`);
+    item.querySelector('.faq-q').onclick = ()=> item.classList.toggle('open');
+    list.appendChild(item);
+  });
+}
+
+function renderGuestbook(){
+  const grid = document.getElementById('gbGrid');
+  grid.innerHTML = "";
+  if(guestbookData.length===0){ grid.innerHTML='<p class="center" style="grid-column:1/-1;color:var(--ink-soft)">Your note will be sent straight to us.</p>'; return; }
+  guestbookData.slice().reverse().forEach(g=>{
+    grid.appendChild(el(`<div class="gb-card"><div class="gb-name">${esc(g.name)}</div><p>${esc(g.msg)}</p></div>`));
+  });
+}
+
+/* ---------------- INTERACTIONS ---------------- */
+function pickPhoto(node, isGallery){
+  const input = document.createElement('input');
+  input.type='file'; input.accept='image/*';
+  input.onchange = e=>{
+    const file = e.target.files[0];
+    if(!file) return;
+    const url = URL.createObjectURL(file);
+    node.style.backgroundImage = `url('${url}')`;
+    node.style.backgroundSize = 'cover';
+    node.style.backgroundPosition = 'center';
+    node.innerHTML = '';
+    node.style.border = 'none';
+  };
+  input.click();
+}
+
+/* Hero pre-wedding photo slideshow */
+let heroImages = [];
+let heroIndex = 0;
+let heroInterval = null;
+
+function renderHeroDots(){
+  const dots = document.getElementById('heroDots');
+  dots.innerHTML = '';
+  if(heroImages.length < 2) return;
+  heroImages.forEach((_,i)=>{
+    dots.appendChild(el(`<span class="${i===heroIndex?'active':''}"></span>`));
+  });
+}
+
+function showHeroImage(i){
+  heroIndex = i;
+  document.getElementById('hero').style.setProperty('--hero-img', `url('${heroImages[heroIndex]}')`);
+  renderHeroDots();
+}
+
+function startHeroSlideshow(){
+  if(heroInterval) clearInterval(heroInterval);
+  if(heroImages.length > 1){
+    heroInterval = setInterval(()=>{
+      showHeroImage((heroIndex + 1) % heroImages.length);
+    }, 5000);
+  }
+}
+
+document.getElementById('heroUpload').onchange = function(e){
+  const files = Array.from(e.target.files || []);
+  if(files.length === 0) return;
+  const startCount = heroImages.length;
+  const failed = [];
+  let remaining = files.length;
+  files.forEach(file=>{
+    const url = URL.createObjectURL(file);
+    loadImageSafe(url,
+      ()=>{ heroImages.push(url); finishHeroBatch(); },
+      ()=>{ failed.push(file.name); finishHeroBatch(); }
+    );
+  });
+  function finishHeroBatch(){
+    remaining--;
+    if(remaining===0){
+      if(heroImages.length > startCount){
+        showHeroImage(startCount);
+        startHeroSlideshow();
+        document.getElementById('heroUploadLabel').textContent = 'Add More Photos';
+      }
+      if(failed.length){
+        alert(`These photos couldn't be displayed (likely HEIC/iPhone format — convert to JPG or PNG and re-upload):\n${failed.join('\n')}`);
+      }
+    }
+  }
+  e.target.value = '';
+};
+
+function openLightbox(src){ document.getElementById('lightboxImg').src=src; document.getElementById('lightbox').classList.add('open'); }
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
+
+/* tabs */
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.onclick = ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  };
+});
+
+/* countdown */
+const weddingDate = new Date("2027-04-30T13:00:00");
+function tickCountdown(){
+  const now = new Date();
+  let diff = weddingDate - now;
+  if(diff<0) diff=0;
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor(diff%86400000/3600000);
+  const m = Math.floor(diff%3600000/60000);
+  const s = Math.floor(diff%60000/1000);
+  document.getElementById('cd-days').textContent=d;
+  document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+}
+setInterval(tickCountdown,1000); tickCountdown();
+
+/* RSVP */
+const WEB3FORMS_KEY = "bceda52b-4420-45fb-a84d-e871d176c463"; // paste your free Web3Forms access key here (web3forms.com) so RSVPs and guestbook notes are emailed to you
+function esc(t){ return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function sendToEndpoint(payload){
+  if(!WEB3FORMS_KEY) return Promise.resolve(false);
+  const subject = payload.type==='rsvp' ? 'New RSVP: '+payload.name : 'New guestbook note from '+payload.name;
+  return fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:WEB3FORMS_KEY,subject,from_name:'Wedding Website',...payload})})
+    .then(r=>r.json()).then(j=>j.success===true).catch(()=>false);
+}
+function submitRsvp(e){
+  e.preventDefault();
+  const entry = {
+    name: document.getElementById('r-name').value,
+    email: document.getElementById('r-email').value,
+    phone: document.getElementById('r-phone').value,
+    guests: document.getElementById('r-guests').value,
+    attend: document.querySelector('input[name="attend"]:checked').value,
+    song: document.getElementById('r-song').value,
+    message: document.getElementById('r-msg').value
+  };
+  sendToEndpoint({type:'rsvp', ...entry}).then(ok=>{
+    if(WEB3FORMS_KEY && !ok){ alert("Sorry, your RSVP could not be sent. Please try again or contact us directly."); return; }
+    rsvpData.push({...entry, msg:entry.message});
+    document.getElementById('rsvpForm').style.display='none';
+    const c = document.getElementById('rsvpConfirm');
+    c.style.display='block';
+    if(!WEB3FORMS_KEY) c.innerHTML += '<br><small>Preview mode: responses are not being saved yet.</small>';
+    refreshAdminRsvp();
+  });
+}
+
+/* Guestbook: notes are emailed to the couple; the guest sees their own note as confirmation */
+function submitGuestbook(e){
+  e.preventDefault();
+  const note = {name:document.getElementById('gb-name').value, msg:document.getElementById('gb-msg').value};
+  const form = e.target;
+  sendToEndpoint({type:'guestbook', name:note.name, message:note.msg}).then(ok=>{
+    if(WEB3FORMS_KEY && !ok){ alert("Sorry, your note could not be sent. Please try again."); return; }
+    guestbookData.push(note);
+    form.reset();
+    renderGuestbook();
+  });
+}
+
+/* copy */
+function copyText(t){
+  navigator.clipboard.writeText(t).then(()=>alert('Copied: '+t));
+}
+
+/* ---------------- ADMIN ---------------- */
+function openAdmin(){ document.getElementById('adminPanel').classList.add('open'); }
+function closeAdmin(){ document.getElementById('adminPanel').classList.remove('open'); }
+function checkAdminPass(){
+  if(document.getElementById('adminPass').value === 'wedding2027'){
+    document.getElementById('adminLogin').style.display='none';
+    document.getElementById('adminTools').style.display='block';
+    refreshAdminRsvp();
+  } else {
+    alert('Incorrect password.');
+  }
+}
+let editMode=false;
+function toggleEditMode(){
+  editMode=!editMode;
+  document.body.classList.toggle('edit-mode', editMode);
+  document.getElementById('editModeBtn').textContent = editMode ? 'Turn Off Edit Mode' : 'Turn On Edit Mode';
+  document.querySelectorAll('#coupleNames, #heroMeta, .story-item h3, .story-item p, .tl-label, .section-title, .card h3, .card p').forEach(n=>{
+    n.setAttribute('contenteditable', editMode ? 'true':'false');
+  });
+}
+function refreshAdminRsvp(){
+  document.getElementById('rsvpCount').textContent = rsvpData.length;
+  const tbody = document.querySelector('#rsvpTable tbody');
+  tbody.innerHTML = rsvpData.map(r=>`<tr><td>${r.name}</td><td>${r.guests}</td><td>${r.attend.split(' ')[0]}</td></tr>`).join('');
+}
+function exportRsvpCsv(){
+  if(rsvpData.length===0){ alert('No RSVP responses yet.'); return; }
+  const headers = Object.keys(rsvpData[0]);
+  const rows = rsvpData.map(r=>headers.map(h=>`"${(r[h]||'').toString().replace(/"/g,'""')}"`).join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'rsvp-list.csv';
+  link.click();
+}
+
+/* ---------------- SCROLL REVEAL ---------------- */
+function initReveal(){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
+}
+
+/* ---------------- INIT ---------------- */
+const SPRIG=`<svg class="sprig" viewBox="0 0 200 30" width="190" height="28" aria-hidden="true"><g fill="none" stroke="#58402e" stroke-width="1" stroke-linecap="round" opacity=".7"><path d="M70 15 H10"/><path d="M100 9 C94 1 82 2 80 9 C78 16 86 19 89 14"/><g transform="translate(200 0) scale(-1 1)"><path d="M70 15 H10"/><path d="M100 9 C94 1 82 2 80 9 C78 16 86 19 89 14"/></g></g><path d="M100 7 L104 15 L100 23 L96 15Z" fill="#EECFD0" stroke="#58402e" stroke-width=".9"/></svg>`;
+document.querySelectorAll('.section .center').forEach(c=>{ if(c.querySelector('.eyebrow')) c.insertAdjacentHTML('afterbegin',SPRIG); });
+renderDayTimeline();
+renderFaq();
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#"]'); if(!a) return;
+  const id=a.getAttribute('href').slice(1); if(!id) return;
+  const t=document.getElementById(id); if(!t) return;
+  e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'});
+  document.getElementById('navLinks').classList.remove('open');
+});
+renderGuestbook();
+initReveal();
+// re-observe dynamically added reveal nodes (story items)
+setTimeout(initReveal, 50);
+</script>
+</body>
+</html>
